@@ -1,6 +1,6 @@
 {
-  "name": "datocms-snipcart-gatsby-example",
-  "description": "An example project to demonstrate how you can integrate Gatsby, Snipcart and DatoCMS",
+  "name": "os-do-casal-store",
+  "description": "Mi sitio de ecommerce para OS DO CASAL",
   "version": "1.0.0",
   "author": "DatoCMS <support@datocms.com>",
   "dependencies": {
