@@ -15,8 +15,8 @@ const Home = () => (
               price
               image {
                 url
-                sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
-                  ...GatsbyDatoCmsSizes
+                fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+                  ...GatsbyDatoCmsFluid
                 }
               }
             }
@@ -52,7 +52,7 @@ const Home = () => (
                 data-item-url={`/`}
               >
                 <div className="Product__image">
-                  <Img sizes={product.image.sizes} />
+                  <Img fluid={product.image.fluid} loading="lazy" />
                 </div>{' '}
                 <div className="Product__details">
                   <div className="Product__name">

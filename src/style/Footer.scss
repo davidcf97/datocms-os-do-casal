@@ -1,15 +1,36 @@
 .Footer {
-  margin: 80px auto;
-  max-width: 400px;
-  font-family: "times new roman", times, serif;
-  font-style: italic;
-  border: 3px solid black;
-  background-color: white;
-  padding: 20px 30px;
+  background-color: #171717;
+  padding: 30px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #fff;
+
+  .row {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .col-md-4 {
+    width: 33.33%;
+    flex-basis: 100%;
+    text-align: center;
+  }
 
   a {
+    color: #00c4ff;
+    text-decoration: none;
     font-weight: bold;
-    text-decoration: underline;
-    color: blue;
   }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .Icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+
 }

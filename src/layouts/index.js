@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import '../style/index.scss';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Footer from '../components/footer';
 
 const Layout = ({ children, site, seo }) => {
   return (
@@ -32,12 +33,7 @@ const Layout = ({ children, site, seo }) => {
         </div>
         <div className="Wrap">{children}</div>
         <div className="Wrap">
-          <div className="Footer">
-            This website is just an example project to demonstrate how you can
-            integrate <a href="https://www.gatsbyjs.org/">Gatsby</a>,{' '}
-            <a href="https://snipcart.com/">Snipcart</a> and{' '}
-            <a href="https://www.datocms.com">DatoCMS</a>.
-          </div>
+          <Footer />
         </div>
       </div>
     </>

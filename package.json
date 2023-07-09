@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "author": "DatoCMS <support@datocms.com>",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@mui/icons-material": "^5.13.7",
     "dotenv": "^16.0.3",
     "gatsby": "^4.24.4",
     "gatsby-image": "^2.2.34",
