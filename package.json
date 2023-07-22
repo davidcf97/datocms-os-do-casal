@@ -17,6 +17,7 @@
     "gatsby-source-datocms": "^4.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
     "sass": "^1.55.0"
   },
   "keywords": [
@@ -26,6 +27,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "clean": "gatsby clean",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
