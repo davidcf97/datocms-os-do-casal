@@ -1,0 +1,42 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Link from 'gatsby-link';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+
+const Header = ({ site, seo }) => {
+  return (
+    <>
+      <HelmetDatoCms seo={seo} />
+      <div className="Header">
+        <div className="Wrap">
+          <div className="Header__body">
+            <h1 className="Header__title">
+              <Link data-text={site.globalSeo.siteName} to="/">
+                {site.globalSeo.siteName}
+              </Link>
+            </h1>
+            <div className="Header__summary snipcart-summary snipcart-checkout">
+              <div className="Header__summary__title">
+                <ShoppingCartRoundedIcon data-item-count className="cart-icon" />
+              </div>
+              <div className="Header__summary__line">
+                Number of items: <span className="snipcart-total-items"></span>
+              </div>
+              <div className="Header__summary__line">
+                Total price: <span className="snipcart-total-price"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+Header.propTypes = {
+  site: PropTypes.object.isRequired,
+  seo: PropTypes.object.isRequired,
+};
+
+export default Header;
