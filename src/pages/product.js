@@ -3,12 +3,11 @@ import Layout from '../layouts/index';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 
-const Product = ({ location, data }) => {
-  
+const Product = ({ location, data, pageContext }) => {
+
   const dataFromLink = location.state && location.state.siteData;
   const dataFromQuery  = data;
   const dataFinal = dataFromLink || dataFromQuery;
-  console.log(dataFinal);
 
   const productFromLink = location.state && location.state.productData;
   const productFromQuery = data.datoCmsProduct;
@@ -37,7 +36,7 @@ const Product = ({ location, data }) => {
 };
 
 export const query = graphql`
-  query($productId: String!) {
+  query($productId: String) {
     datoCmsProduct(id: { eq: $productId }) {
       id
       name

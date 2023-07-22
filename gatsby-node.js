@@ -21,9 +21,6 @@ exports.createPages = async ({ graphql, actions, createNodeId, createContentDige
     }
   `);
 
-  // Log the query result to check the data
-  console.log(JSON.stringify(result, null, 2));
-
   // Verifica si la consulta tiene datos válidos
   if (result.errors) {
     throw new Error(result.errors);
@@ -42,13 +39,15 @@ exports.createPages = async ({ graphql, actions, createNodeId, createContentDige
         contentDigest: createContentDigest(product.image.url),
       },
     });
-  
-    createPage({
-      path: `product/${product.id}`,
-      component: path.resolve('./src/pages/product.js'),
-      context: {
-        productId: product.id,
-      },
-    });    
+
+    result.data.allDatoCmsProduct.edges.forEach(({ node: product }) => {
+      createPage({
+        path: `product/${product.id}`,
+        component: path.resolve('./src/pages/product.js'),
+        context: {
+          productId: product.id,
+        },
+      }); 
+    })
   });  
 };
