@@ -1,0 +1,32 @@
+.product-display {
+  margin: 16vh 0;
+}
+
+.product-display__item {
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 600px) {
+  .product-display {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .product-display__item {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .product-display {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .product-display__item {
+    width: 48%;
+  }
+}

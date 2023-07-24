@@ -2,24 +2,26 @@ import React from 'react';
 import Layout from '../layouts/index';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
+import '../style/pdp.scss';
 
-const Product = ({ location, data, pageContext }) => {
+const Product = ({ data, pageContext }) => {
 
-  const dataFromLink = location.state && location.state.siteData;
-  const dataFromQuery  = data;
-  const dataFinal = dataFromLink || dataFromQuery;
-
-  const productFromLink = location.state && location.state.productData;
-  const productFromQuery = data.datoCmsProduct;
-  const product  = productFromLink || productFromQuery;
-
+  const product = data.datoCmsProduct;
 
   return(
     <Layout
-      site={dataFinal.site}
-      seo={{ ...dataFinal.site.globalSeo, ...dataFinal.site.faviconMetaTags }}
+      site={data.site}
+      seo={{ ...data.site.globalSeo, ...data.site.faviconMetaTags }}
     >
-      <div className="Catalogue__item" key={product.id}>
+      <div className="product-display__item" key={product.id}>
+        <div
+                className="Product snipcart-add-item"
+                data-item-id={product.id}
+                data-item-price={product.price}
+                data-item-image={product.image.url}
+                data-item-name={product.name}
+                data-item-url={`/product/${product.id}`}
+              >
           <div className="Product__image">
             <Img fluid={product.image.fluid} loading="lazy" />
           </div>
@@ -30,6 +32,7 @@ const Product = ({ location, data, pageContext }) => {
             </div>
             <span className="Product__buy">Buy now</span>
           </div>
+        </div>
       </div>
     </Layout>
   )
