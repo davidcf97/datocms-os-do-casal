@@ -15,11 +15,29 @@ const Category = ({ category }) => {
         </div>
         <div className="Category__products">
           {Array.isArray(category.products) && category.products.map((product) => (
-            <div className="Category__product" key={product.id}>
-              <Link to={`/product/${product.seourl}`}>
-                {product.name}
-              </Link>
+            <div className="Catalogue__item" key={product.id}>
+            <Link to={`${product.locale}/product/${product.seourl}`}>
+              <div className="Product__image">
+                <Img fluid={product.image.fluid} loading="lazy" />
+              </div>
+              <div className="Product__details">
+                <div className="Product__name">
+                  {product.name}
+                  <div className="Product__price">{product.price}€</div>
+                </div>
+              </div>
+            </Link>
+            <div
+              className="Product snipcart-add-item"
+              data-item-id={product.id}
+              data-item-price={product.price}
+              data-item-image={product.image.url}
+              data-item-name={product.name}
+              data-item-url={`/product/${product.id}`}
+            >
+              <span className="Product__buy">Buy now</span>
             </div>
+          </div>
           ))}
         </div>
       </div>
@@ -59,6 +77,12 @@ export const query = graphql`
             name
             seourl
             price
+            image {
+                url
+                fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+                    ...GatsbyDatoCmsFluid
+                }
+            }
           }
         }
       }
