@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../layouts/index';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
-import '../style/pdp.scss';
 
 const Product = ({ data }) => {
 

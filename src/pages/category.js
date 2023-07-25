@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../layouts/index';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
-import '../style/category.scss';
 
 const Category = ({ category }) => {
   return (

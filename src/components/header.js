@@ -18,16 +18,16 @@ const Header = ({ site, seo }) => {
       <div className="Header">
         <div className="Wrap">
           <div className="Header__body">
-            <h1 className="Header__title">
-              <Link data-text={site.globalSeo.siteName} to="/">
-                {site.globalSeo.siteName}
-              </Link>
-            </h1>
             <div className="Header__menu-icon" onClick={handleDropdownToggle}>
               <div className={`menu-icon__bar ${isDropdownOpen ? 'open' : ''}`}></div>
               <div className={`menu-icon__bar ${isDropdownOpen ? 'open' : ''}`}></div>
               <div className={`menu-icon__bar ${isDropdownOpen ? 'open' : ''}`}></div>
             </div>
+            <h1 className="Header__title">
+              <Link data-text={site.globalSeo.siteName} to="/">
+                {site.globalSeo.siteName}
+              </Link>
+            </h1>
             <div className={`Header__summary snipcart-summary snipcart-checkout ${isDropdownOpen ? 'open' : ''}`}>
               <div className="Header__summary__title">
                 <ShoppingCartRoundedIcon data-item-count className="cart-icon" />
