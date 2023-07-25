@@ -1,0 +1,54 @@
+.DropdownMenu {
+    background-color: #663399;
+    color: white;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .DropdownMenu a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+  }
+  
+  /* Estilos del icono de menú */
+  .Header__menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 999;
+  }
+  
+  .Header__menu-icon .menu-icon__bar {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .Header__menu-icon .menu-icon__bar:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  
+  .Header__menu-icon.open .menu-icon__bar:first-child {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .Header__menu-icon.open .menu-icon__bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .Header__menu-icon.open .menu-icon__bar:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+  }  

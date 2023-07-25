@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import '../style/pdp.scss';
 
-const Product = ({ data, pageContext }) => {
+const Product = ({ data }) => {
 
   const product = data.datoCmsProduct;
 
@@ -20,7 +20,7 @@ const Product = ({ data, pageContext }) => {
                 data-item-price={product.price}
                 data-item-image={product.image.url}
                 data-item-name={product.name}
-                data-item-url={`/product/${product.id}`}
+                data-item-url={`/product/${product.seourl}`}
               >
           <div className="Product__image">
             <Img fluid={product.image.fluid} loading="lazy" />
@@ -42,8 +42,10 @@ export const query = graphql`
   query($productId: String) {
     datoCmsProduct(id: { eq: $productId }) {
       id
+      seourl
       name
       price
+      locale
       image {
         fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
           ...GatsbyDatoCmsFluid
