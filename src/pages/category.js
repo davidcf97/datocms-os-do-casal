@@ -45,8 +45,6 @@ const Category = ({ category }) => {
 };
 
 const CategoryPage = ({ data }) => {
-  console.log(data);
-
   return (
     <Layout
         site={data.site}
