@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
+  pathPrefix: `/`,
   siteMetadata: {
     siteName: 'OS DO CASAL',
   },

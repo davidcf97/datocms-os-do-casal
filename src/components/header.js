@@ -15,6 +15,8 @@ const Header = ({ site, seo }) => {
   return (
     <>
       <HelmetDatoCms seo={seo} />
+      <script async src="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js"></script>
+      <div hidden id="snipcart" data-api-key="OWE3MmZmMjQtNTk3Yi00OThhLWEwMmUtZDY4ZWM4NzIwYzZiNjM2NjM0Mzc1NzE0MTUwNzI1"></div>
       <div className="Header">
         <div className="Wrap">
           <div className="Header__body">
