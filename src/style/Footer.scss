@@ -15,6 +15,13 @@
     width: 33.33%;
     flex-basis: 100%;
     text-align: center;
+
+    h3 {
+      svg {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
   }
 
   a {
