@@ -2,7 +2,7 @@
   "name": "os-do-casal-store",
   "description": "Mi sitio de ecommerce para OS DO CASAL",
   "version": "1.0.0",
-  "author": "DatoCMS <support@datocms.com>",
+  "author": "David Casal Fernandez",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -25,7 +25,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "clean": "gatsby clean",
     "format": "prettier --write 'src/**/*.js'",

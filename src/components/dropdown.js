@@ -23,11 +23,15 @@ const DropdownMenu = () => {
 
   return (
     <div className="DropdownMenu">
-      {categories.map((category) => (
-        <Link key={category.id} to={`${category.locale}/${category.seourl}`}>
-          {category.name}
-        </Link>
-      ))}
+      <ul className="menu-options">
+        {categories.map((category) => (
+          <li key={category.id}>
+            <Link to={`${category.locale}/${category.seourl}`}>
+              {category.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

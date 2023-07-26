@@ -16,6 +16,7 @@
   flex: 1;
   padding: 20px 0;
   width: 50%;
+  margin-left: 15px;
   text-align: center;
   font-family: "times new roman", times, serif;
   font-style: italic;
@@ -34,11 +35,25 @@
   text-decoration: none;
   color: white;
   text-align: center;
-  cursor: pointer;
   width: 35%;
+  position: relative;
 
   &:hover {
     text-decoration: underline;
+  }
+
+
+  &__title {
+    svg {
+      @media screen and (min-width: 768px) {
+        width: 38px;
+        height: 38px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
   }
 }
 
@@ -65,25 +80,5 @@
 
   .Header__body {
     justify-content: center; /* Center the logo horizontally */
-  }
-}
-
-@keyframes noise-anim {
-  $steps: 20;
-
-  @for $i from 0 through $steps {
-    #{percentage($i * calc(1/$steps))} {
-      clip:rect(random(100) + px, 9999px, random(100) + px, 0);
-    }
-  }
-}
-
-@keyframes noise-anim-2 {
-  $steps: 20;
-
-  @for $i from 0 through $steps{
-    #{percentage($i * calc(1/$steps))}{
-      clip:rect(random(100) + px, 9999px, random(100) + px, 0);
-    }
   }
 }

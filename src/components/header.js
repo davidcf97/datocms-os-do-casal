@@ -31,12 +31,7 @@ const Header = ({ site, seo }) => {
             <div className={`Header__summary snipcart-summary snipcart-checkout ${isDropdownOpen ? 'open' : ''}`}>
               <div className="Header__summary__title">
                 <ShoppingCartRoundedIcon data-item-count className="cart-icon" />
-              </div>
-              <div className="Header__summary__line">
-                Number of items: <span className="snipcart-total-items"></span>
-              </div>
-              <div className="Header__summary__line">
-                Total price: <span className="snipcart-total-price"></span>
+                <span className="snipcart-items-count"></span>
               </div>
             </div>
           </div>

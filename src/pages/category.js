@@ -8,11 +8,11 @@ const Category = ({ category }) => {
     <div className="category-display__item" key={category.id}>
       <div className="Category">
         <div className="Category__details">
-          <div className="Category__name">
+          <h1 className="Category__name">
             {category.name}
-          </div>
+          </h1>
         </div>
-        <div className="Category__products">
+        <div className="Catalogue">
           {Array.isArray(category.products) && category.products.map((product) => (
             <div className="Catalogue__item" key={product.id}>
             <Link to={`${product.locale}/product/${product.seourl}`}>
@@ -45,7 +45,7 @@ const Category = ({ category }) => {
 };
 
 const CategoryPage = ({ data }) => {
-  const categories = data.categories.edges;
+  console.log(data);
 
   return (
     <Layout
@@ -53,48 +53,42 @@ const CategoryPage = ({ data }) => {
         seo={{ ...data.site.globalSeo, ...data.site.faviconMetaTags }}
     >
       <div className="category-page">
-        {categories.map((category) => (
-          <Category key={category.node.id} category={category.node} />
-        ))}
+        <Category key={data.category.id} category={data.category} />
       </div>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query {
-    categories: allDatoCmsCategory {
-      edges {
-        node {
-          id
-          identifier
-          locale
-          name
-          products {
-            id
-            locale
-            name
-            seourl
-            price
-            image {
-                url
-                fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
-                    ...GatsbyDatoCmsFluid
-                }
-            }
+query($categoryId: String) {
+  category: datoCmsCategory(id: { eq: $categoryId }) {
+    id
+    identifier
+    locale
+    name
+    products {
+      id
+      locale
+      name
+      seourl
+      price
+      image {
+          url
+          fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+              ...GatsbyDatoCmsFluid
           }
-        }
-      }
-    }
-    site: datoCmsSite {
-      faviconMetaTags {
-        tags
-      }
-      globalSeo {
-        siteName
       }
     }
   }
+  site: datoCmsSite {
+    faviconMetaTags {
+      tags
+    }
+    globalSeo {
+      siteName
+    }
+  }
+}
 `;
 
 export default CategoryPage;

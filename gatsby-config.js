@@ -1,8 +1,9 @@
 require('dotenv').config();
 
 module.exports = {
+  pathPrefix: `/`,
   siteMetadata: {
-    siteName: 'My Shop',
+    siteName: 'OS DO CASAL',
   },
   plugins: [
     'gatsby-plugin-sass',
