@@ -45,7 +45,7 @@ const Home = ({ data }) => {
 
 export const query = graphql`
   query CatalogueQuery {
-    products: allDatoCmsProduct {
+    products: allDatoCmsProduct(filter: {locale: {eq: "es"}}) {
       edges {
         node {
           id

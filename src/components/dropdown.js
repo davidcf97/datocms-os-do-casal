@@ -6,7 +6,7 @@ const DropdownMenu = () => {
   // Consulta GraphQL para obtener las categorías mediante useStaticQuery
   const data = useStaticQuery(graphql`
     query {
-      allDatoCmsCategory {
+      allDatoCmsCategory(filter: {locale: {eq: "es"}}) {
         edges {
           node {
             id
