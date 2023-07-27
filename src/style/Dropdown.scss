@@ -9,6 +9,10 @@
     margin-top: 18px;
     display: flex;
     flex-direction: column;
+    
+    @media screen and (max-width: 767px) {
+      padding: 0 50px;
+    }
 
     .menu-options {
       list-style: none;

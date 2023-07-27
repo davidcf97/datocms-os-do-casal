@@ -10,6 +10,10 @@
   margin-right: 3rem;
   margin-bottom: 3rem;
   z-index: 10;
+
+  @media screen and (max-width: 767px) {
+    max-width: 1000px;
+  }
 }
 
 .Header__body {
@@ -34,6 +38,27 @@
     text-decoration: none;
     display: block;
     padding: 2px;
+
+    @media screen and (max-width: 767px) {
+      div {
+        picture {
+          img {
+            width: 90% !important;
+            height: 90% !important;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      div {
+        picture {
+          img {
+            width: 108% !important;
+          }
+        }
+      }
+    }
   }
 }
 
