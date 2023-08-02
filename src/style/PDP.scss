@@ -5,6 +5,15 @@
 .product-display__item {
   margin: 0 auto;
   margin-bottom: 16px;
+
+  .slick-dots {
+    display: none !important;
+  }
+  .slick-slider {
+    svg {
+      color: white;
+    }
+  }
 }
 
 @media screen and (min-width: 600px) {

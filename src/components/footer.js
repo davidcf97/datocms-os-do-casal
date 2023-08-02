@@ -8,19 +8,19 @@ const Footer = () => {
           <div className="row">
             <div className="col-md-4">
               <h3>
-                <Info /> About Us
+                <Info /> Sobre Nosotros
               </h3>
               {/* Rest of the content */}
             </div>
             <div className="col-md-4">
               <h3>
-                <Email /> Contact Us
+                <Email /> Contáctanos
               </h3>
               {/* Rest of the content */}
             </div>
             <div className="col-md-4">
               <h3>
-                <Link /> Stay Connected
+                <Link /> RRSS
               </h3>
               {/* Rest of the content */}
             </div>

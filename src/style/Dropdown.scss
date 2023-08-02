@@ -70,7 +70,11 @@
 
   .Header__menu-icon {
     width: 33.33%;
-    max-width: 8rem;
+    max-width: 6rem;
+
+    @media screen and (max-width: 767px) {
+      max-width: 5rem;
+    }
   }
   
   .Header__menu-icon .menu-icon__bar {
