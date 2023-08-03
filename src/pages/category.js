@@ -15,7 +15,7 @@ const Category = ({ category }) => {
         <div className="Catalogue">
           {Array.isArray(category.products) && category.products.map((product) => (
             <div className="Catalogue__item" key={product.id}>
-            <Link to={`${product.locale}/product/${product.seourl}`}>
+            <Link to={`/${product.locale}/product/${product.seourl}`}>
               <div className="Product__image">
                 <Img fluid={product.image.fluid} loading="lazy" />
               </div>

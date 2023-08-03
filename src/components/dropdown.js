@@ -26,7 +26,7 @@ const DropdownMenu = () => {
       <ul className="menu-options">
         {categories.map((category) => (
           <li key={category.id}>
-            <Link to={`${category.locale}/${category.seourl}`}>
+            <Link to={`/${category.locale}/${category.seourl}`}>
               {category.name}
             </Link>
           </li>
