@@ -12,6 +12,7 @@ const Layout = ({ children, site, seo}) => {
         <html lang="es" />
         <title>OS DO CASAL</title>
         <meta name="description" content="OS DO CASAL" />
+        <link rel="manifest" href="/manifest.json" />
       </HelmetDatoCms>
       <div className="Container">
         <Header site={site} seo={seo} />
