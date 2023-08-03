@@ -8,7 +8,11 @@ import Header from '../components/header';
 const Layout = ({ children, site, seo}) => {
   return (
     <>
-      <HelmetDatoCms seo={seo} />
+      <HelmetDatoCms seo={seo}>
+        <html lang="es" />
+        <title>OS DO CASAL</title>
+        <meta name="description" content="OS DO CASAL" />
+      </HelmetDatoCms>
       <div className="Container">
         <Header site={site} seo={seo} />
         <div className="Wrap">{children}</div>
