@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../layouts/index';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
@@ -10,6 +10,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Product = ({ data }) => {
   const product = data.datoCmsProduct;
+  const [loupePosition, setLoupePosition] = useState({ x: 0, y: 0 });
+  const [showLoupe, setShowLoupe] = useState(false);
 
   const settings = {
     dots: true,
@@ -21,14 +23,37 @@ const Product = ({ data }) => {
     nextArrow: <ArrowForwardIosIcon />,
     responsive: [
       {
-        breakpoint: 768, // Change this to the desired breakpoint for mobile
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: true, // Show arrows on mobile
+          arrows: true,
         },
       },
     ],
+  };
+
+  const handleMouseEnter = () => {
+    setShowLoupe(true);
+  };
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const { clientX, clientY } = e;
+
+    // Calculamos la posición de la lupa respecto a la imagen
+    const x = (clientX - left);
+    const y = (clientY - top);
+
+    // Ajustamos la posición de la lupa para que el cursor esté centrado
+    const backgroundPositionX = -x * 8 - 400; // 75 es la mitad del tamaño de la lupa
+    const backgroundPositionY = -y * 8 - 400; // 75 es la mitad del tamaño de la lupa
+
+    setLoupePosition({ x, y, backgroundPositionX, backgroundPositionY });
+  };
+
+  const handleMouseLeave = () => {
+    setShowLoupe(false);
   };
 
   return (
@@ -39,12 +64,36 @@ const Product = ({ data }) => {
       <div className="product-display__item" key={product.id}>
         <Slider {...settings}>
           {product.imagegalery.map((image, index) => (
-            <div key={index} className="carousel-image">
+            <div
+              key={index}
+              className="carousel-image"
+              onMouseEnter={handleMouseEnter}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
               <Img fluid={image.fluid} loading="lazy" />
+              {showLoupe && (
+                <div
+                  className="loupe"
+                  style={{
+                    backgroundImage: `url(${image.fluid.src})`,
+                    backgroundPosition: `-${loupePosition.x}px -${loupePosition.y}px`,
+                    left: loupePosition.x,
+                    top: loupePosition.y,
+                  }}
+                />
+              )}
             </div>
           ))}
         </Slider>
-        <div className="Product snipcart-add-item" data-item-id={product.id} data-item-price={product.price} data-item-image={product.image.url} data-item-name={product.name} data-item-url={`/product/${product.seourl}`}>
+        <div
+          className="Product snipcart-add-item"
+          data-item-id={product.id}
+          data-item-price={product.price}
+          data-item-image={product.image.url}
+          data-item-name={product.name}
+          data-item-url={`/product/${product.seourl}`}
+        >
           <div className="Product__details">
             <div className="Product__name">
               {product.name}

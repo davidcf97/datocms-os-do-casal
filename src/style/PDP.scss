@@ -39,3 +39,24 @@
     width: 48%;
   }
 }
+
+.carousel-image {
+  position: relative;
+
+  .loupe {
+    position: absolute;
+    width: 8rem; // Tamaño de la lupa (ajustar según necesites)
+    height: 8rem; // Tamaño de la lupa (ajustar según necesites)
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 400% 400%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    pointer-events: none;
+    display: none;
+    z-index: 9999;
+  }
+
+  &:hover .loupe {
+    display: block;
+  }
+}

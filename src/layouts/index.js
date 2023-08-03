@@ -6,6 +6,7 @@ import Footer from '../components/footer';
 import Header from '../components/header';
 
 const Layout = ({ children, site, seo}) => {
+
   return (
     <>
       <HelmetDatoCms seo={seo}>
