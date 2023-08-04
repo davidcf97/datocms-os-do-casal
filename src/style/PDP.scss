@@ -58,15 +58,57 @@
     border: 2px solid #fff;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
-    background-size: 500% 500%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    background-size: 460% 460%; // Tamaño de la imagen ampliada (ajustar según necesites)
     pointer-events: none;
     display: none;
     z-index: 9999;
 
-    @media screen and (max-width: 1080px) {
+    @media screen and (max-width: 1280px) {
+      width: 8rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 8rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 525% 525%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 7rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 7rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 475% 475%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 1023px) {
       width: 6rem; // Tamaño de la lupa (ajustar según necesites)
       height: 6rem; // Tamaño de la lupa (ajustar según necesites)
-      background-size: 550% 550%; // Tamaño de la imagen ampliada (ajustar según necesites)
+      background-size: 710% 710%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 6rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 6rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 650% 650%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 480px) {
+      width: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 565% 565%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 390px) {
+      width: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 525% 525%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 360px) {
+      width: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 500% 500%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
+
+    @media screen and (max-width: 320px) {
+      width: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 5rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 390% 390%; // Tamaño de la imagen ampliada (ajustar según necesites)
     }
   }
 
