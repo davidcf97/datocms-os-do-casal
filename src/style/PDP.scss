@@ -13,6 +13,13 @@
     svg {
       color: white;
     }
+
+    .slick-next:before {
+      display: none !important;
+    }
+    .slick-prev:before {
+      display: none !important;
+    }
   }
 }
 
