@@ -52,6 +52,23 @@ const Product = ({ data }) => {
     setLoupePosition({ x, y, backgroundPositionX, backgroundPositionY });
   };
 
+  const handleTouchMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const { touches } = e;
+
+    if (touches.length > 0) {
+      const { clientX, clientY } = touches[0];
+
+      const x = (clientX - left);
+      const y = (clientY - top);
+
+      const backgroundPositionX = -x * 8 - 400;
+      const backgroundPositionY = -y * 8 - 400;
+
+      setLoupePosition({ x, y, backgroundPositionX, backgroundPositionY });
+    }
+  };
+
   const handleMouseLeave = () => {
     setShowLoupe(false);
   };
@@ -70,6 +87,7 @@ const Product = ({ data }) => {
               onMouseEnter={handleMouseEnter}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
+              onTouchMove={handleTouchMove}
             >
               <Img fluid={image.fluid} loading="lazy" />
               {showLoupe && (
