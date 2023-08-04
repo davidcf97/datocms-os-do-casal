@@ -49,18 +49,25 @@
 
 .carousel-image {
   position: relative;
+  cursor: none;
   
   .loupe {
     position: absolute;
-    width: 8rem; // Tamaño de la lupa (ajustar según necesites)
-    height: 8rem; // Tamaño de la lupa (ajustar según necesites)
+    width: 9rem; // Tamaño de la lupa (ajustar según necesites)
+    height: 9rem; // Tamaño de la lupa (ajustar según necesites)
     border: 2px solid #fff;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
-    background-size: 400% 400%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    background-size: 500% 500%; // Tamaño de la imagen ampliada (ajustar según necesites)
     pointer-events: none;
     display: none;
     z-index: 9999;
+
+    @media screen and (max-width: 1080px) {
+      width: 6rem; // Tamaño de la lupa (ajustar según necesites)
+      height: 6rem; // Tamaño de la lupa (ajustar según necesites)
+      background-size: 550% 550%; // Tamaño de la imagen ampliada (ajustar según necesites)
+    }
   }
 
   &:hover .loupe {

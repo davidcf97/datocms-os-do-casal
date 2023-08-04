@@ -154,7 +154,7 @@ export const query = graphql`
         }
       }
       imagegalery {
-        fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+        fluid(maxWidth: 500, imgixParams: { fm: "jpg" }) {
           ...GatsbyDatoCmsFluid
         }
       }
