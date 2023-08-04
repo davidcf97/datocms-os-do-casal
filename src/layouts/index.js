@@ -5,7 +5,7 @@ import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Footer from '../components/footer';
 import Header from '../components/header';
 
-const Layout = ({ children, site, seo}) => {
+const Layout = ({ children, site, seo, data}) => {
 
   return (
     <>

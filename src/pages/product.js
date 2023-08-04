@@ -13,14 +13,26 @@ const Product = ({ data }) => {
   const [loupePosition, setLoupePosition] = useState({ x: 0, y: 0 });
   const [showLoupe, setShowLoupe] = useState(false);
 
+  const SlickButtonFix = ({currentSlide, slideCount, children, ...props}) => (
+    <span {...props}>{children}</span>
+  );
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: <ArrowBackIosIcon />,
-    nextArrow: <ArrowForwardIosIcon />,
+    prevArrow: (
+        <SlickButtonFix>
+            <ArrowBackIosIcon />
+        </SlickButtonFix>
+    ),
+    nextArrow: (
+      <SlickButtonFix>
+          <ArrowForwardIosIcon />
+      </SlickButtonFix>
+  ),
     responsive: [
       {
         breakpoint: 768,
@@ -78,7 +90,10 @@ const Product = ({ data }) => {
       site={data.site}
       seo={{ ...data.site.globalSeo, ...data.site.faviconMetaTags }}
     >
-      <div className="product-display__item" key={product.id}>
+      <div className="product-display__item" 
+      key={product.id}
+      style={{ touchAction: 'none' }} // Deshabilitar el desplazamiento táctil predeterminado
+      >
         <Slider {...settings}>
           {product.imagegalery.map((image, index) => (
             <div
