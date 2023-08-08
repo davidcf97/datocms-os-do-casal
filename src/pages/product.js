@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Layout from '../layouts/index';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
@@ -12,6 +12,7 @@ const Product = ({ data }) => {
   const product = data.datoCmsProduct;
   const [loupePosition, setLoupePosition] = useState({ x: 0, y: 0 });
   const [showLoupe, setShowLoupe] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const SlickButtonFix = ({currentSlide, slideCount, children, ...props}) => (
     <span {...props}>{children}</span>
@@ -85,20 +86,25 @@ const Product = ({ data }) => {
     setShowLoupe(false);
   };
 
+  const handleThumbnailClick = (index) => {
+    setActiveImageIndex(index);
+    sliderRef.current.slickGoTo(index); // Sincroniza el carrusel con la imagen seleccionada
+  };
+
+  const sliderRef = useRef(null); // Crea una referencia al componente Slider
+
   return (
     <Layout
       site={data.site}
       seo={{ ...data.site.globalSeo, ...data.site.faviconMetaTags }}
     >
-      <div className="product-display__item" 
-      key={product.id}
-      style={{ touchAction: 'none' }} // Deshabilitar el desplazamiento táctil predeterminado
-      >
-        <Slider {...settings}>
+      <div className="product-display__item" style={{ touchAction: 'none' }}>
+        {/* Resto del código... */}
+        <Slider {...settings} ref={sliderRef}>
           {product.imagegalery.map((image, index) => (
             <div
               key={index}
-              className="carousel-image"
+              className={`carousel-image ${sliderRef.current && sliderRef.current.innerSlider.state.currentSlide === index ? 'active' : ''}`}
               onMouseEnter={handleMouseEnter}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -119,6 +125,17 @@ const Product = ({ data }) => {
             </div>
           ))}
         </Slider>
+        <div className="thumbnails">
+          {product.imagegalery.map((image, index) => (
+            <div
+              key={index}
+              className={`thumbnail ${index === activeImageIndex ? 'active' : ''}`}
+              onClick={() => handleThumbnailClick(index)}
+            >
+              <Img fluid={image.fluid} loading="lazy" className="thumbnail-image" />
+            </div>
+          ))}
+        </div>
         <div
           className="Product snipcart-add-item"
           data-item-id={product.id}
