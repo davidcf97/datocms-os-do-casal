@@ -58,6 +58,13 @@
   cursor: pointer;
   margin-right: 10px; /* Ajusta este valor para cambiar el margen entre las miniaturas */
   max-width: 10rem;
+  border: 3px solid #000;
+  box-shadow: 9px 9px #000;
+  flex: 1 1;
+  margin-bottom: 25px;
+  padding: 7px;
+  position: relative;
+  width: 100%;
 }
 
 .thumbnail:last-child {
@@ -71,6 +78,13 @@
 .carousel-image {
   position: relative;
   cursor: none;
+  border: 3px solid #000;
+  box-shadow: 9px 9px #000;
+  flex: 1 1;
+  margin-bottom: 25px;
+  padding: 7px;
+  position: relative;
+  width: 100%;
   
   .loupe {
     position: absolute;
