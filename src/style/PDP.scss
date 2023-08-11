@@ -6,12 +6,30 @@
   margin: 0 auto;
   margin-bottom: 16px;
 
-  .slick-dots {
-    display: none !important;
-  }
   .slick-slider {
     svg {
       color: white;
+    }
+
+    .slick-dots li button:before {
+      font-size: .7rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      svg {
+        color: black;
+        font-size: 2rem;
+      }
+
+      .slick-next {
+        right: 18px;
+        z-index: 1;
+      }
+
+      .slick-prev {
+        left: 18px;
+        z-index: 1;
+      }
     }
 
     .slick-next:before {
@@ -47,6 +65,13 @@
   }
 }
 
+.recommendations {
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 5rem;
+}
+
 .thumbnails {
   display: flex;
   margin-top: 20px;
@@ -64,7 +89,7 @@
   margin-bottom: 25px;
   padding: 7px;
   position: relative;
-  width: 100%;
+  width: 25%;
 }
 
 .thumbnail:last-child {

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Layout from '../layouts/index';
 import Img from 'gatsby-image';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -25,25 +25,15 @@ const Product = ({ data }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     prevArrow: (
-        <SlickButtonFix>
-            <ArrowBackIosIcon />
-        </SlickButtonFix>
+      <SlickButtonFix>
+        <ArrowBackIosIcon />
+    </SlickButtonFix>
     ),
     nextArrow: (
       <SlickButtonFix>
           <ArrowForwardIosIcon />
       </SlickButtonFix>
-  ),
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true,
-        },
-      },
-    ],
+    ),
   };
 
   const handleMouseEnter = () => {
@@ -86,11 +76,6 @@ const Product = ({ data }) => {
     setShowLoupe(false);
   };
 
-  const handleThumbnailClick = (index) => {
-    setActiveImageIndex(index);
-    sliderRef.current.slickGoTo(index); // Sincroniza el carrusel con la imagen seleccionada
-  };
-
   const sliderRef = useRef(null); // Crea una referencia al componente Slider
 
   return (
@@ -99,7 +84,6 @@ const Product = ({ data }) => {
       seo={{ ...data.site.globalSeo, ...data.site.faviconMetaTags }}
     >
       <div className="product-display__item" style={{ touchAction: 'none' }}>
-        {/* Resto del código... */}
         <Slider {...settings} ref={sliderRef}>
           {product.imagegalery.map((image, index) => (
             <div
@@ -125,15 +109,18 @@ const Product = ({ data }) => {
             </div>
           ))}
         </Slider>
+        {product.xsell.length > 0 && (
+          <div className="recommendations">
+            <h2>También te puede gustar</h2>
+          </div>
+        )}
         <div className="thumbnails">
-          {product.imagegalery.map((image, index) => (
-            <div
-              key={index}
-              className={`thumbnail ${index === activeImageIndex ? 'active' : ''}`}
-              onClick={() => handleThumbnailClick(index)}
-            >
-              <Img fluid={image.fluid} loading="lazy" className="thumbnail-image" />
-            </div>
+          {product.xsell.map((xProduct, index) => (
+            <div className="thumbnail">
+              <Link to={`/${xProduct.locale}/product/${xProduct.seourl}`}>
+                <Img fluid={xProduct.image.fluid} loading="lazy" className="thumbnail-image" />
+              </Link>
+          </div>
           ))}
         </div>
         <div
@@ -173,6 +160,18 @@ export const query = graphql`
       imagegalery {
         fluid(maxWidth: 500, imgixParams: { fm: "jpg" }) {
           ...GatsbyDatoCmsFluid
+        }
+      }
+      xsell {
+        id
+        locale
+        name
+        seourl
+        price
+        image {
+          fluid(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+            ...GatsbyDatoCmsFluid
+          }
         }
       }
     }

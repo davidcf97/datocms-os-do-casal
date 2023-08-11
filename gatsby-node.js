@@ -17,6 +17,16 @@ exports.createPages = async ({ graphql, actions, createNodeId, createContentDige
             image {
               url
             }
+            xsell {
+              id
+              locale
+              name
+              seourl
+              price
+              image {
+                url
+              }
+            }
           }
         }
       }
