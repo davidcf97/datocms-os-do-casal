@@ -83,7 +83,7 @@ const Product = ({ data }) => {
       site={data.site}
       seo={{ ...data.site.globalSeo, ...data.site.faviconMetaTags }}
     >
-      <div className="product-display__item" style={{ touchAction: 'none' }}>
+      <div className="product-display__item">
         <Slider {...settings} ref={sliderRef}>
           {product.imagegalery.map((image, index) => (
             <div
