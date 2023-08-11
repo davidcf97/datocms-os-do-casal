@@ -5,6 +5,7 @@
 .product-display__item {
   margin: 0 auto;
   margin-bottom: 16px;
+  padding: .9rem;
 
   .slick-slider {
     touch-action: none;
@@ -31,6 +32,12 @@
       .slick-prev {
         left: 18px;
         z-index: 1;
+      }
+
+      .Product {
+        .Product__details {
+          font-size: larger;
+        }
       }
     }
 
@@ -71,7 +78,7 @@
   text-align: center;
   font-weight: bold;
   font-size: larger;
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 .thumbnails {
